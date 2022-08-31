@@ -9,17 +9,19 @@ The purpose of the Data Warehouse is to leave the transactional model so that th
 
 The entire project was <b>developed in SQL</b> and the code will be present in this repository</p>
 <hr>
-OLTP logic modeling -> https://github.com/jonatahs/DataModeling/blob/main/MER_OLTP.png
+OLTP Logic Modeling -> https://github.com/jonatahs/DataModeling/blob/main/MER_OLTP.png
+<br>
 
 OLAP Logic Modeling Dimensions -> https://github.com/jonatahs/DataModeling/blob/main/MER_DIM_DW.png
-
+<br>
 OLAP Logic Modeling Dimensions and Fact -> https://github.com/jonatahs/DataModeling/blob/main/create_DW_and_make_ETL.sql
 
+  
 <hr>
 OLAP Physical Modeling and ETL DW -> https://github.com/jonatahs/DataModeling/blob/main/create_DW_and_make_ETL.sql
-
+<br>
 OLTP Physical Modeling -> https://github.com/jonatahs/DataModeling/blob/main/create_OLTP.sql
-
+<br>
 <h4 >Developed by Jonathan Silva Sales de Oliveira</h4>
 My Social Networks 😉: 
 <ul >
