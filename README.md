@@ -3,7 +3,7 @@
 <hr>
 <h3>Project Schenario</h3>
 
-<p>A project was developed with a fictitious company with fictitious data, in this scenario the logical model of the transactional database was created and the physical model developed, that is, the entire OLTP will be created, an OLAP will also be created and the Data Warehouse and made the ETL,
+<p>A project was developed with a fictitious company with fictitious data, in this scenario the logical model of the transactional database was created and the physical model developed, that is, the entire OLTP will be created, an OLAP will also be created and the Data Warehouse and made the ETL.
 
 The purpose of the Data Warehouse is to leave the transactional model so that the company's analysis can be carried out without having a direct impact on the transactional database.
 
