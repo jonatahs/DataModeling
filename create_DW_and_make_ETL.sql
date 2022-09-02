@@ -1,4 +1,4 @@
--- Dimensão Sales Territory
+-- Dim Sales Territory
 
 CREATE TABLE [Dim_SalesTerritory] (
 SK_Territory INT IDENTITY PRIMARY KEY,
@@ -11,7 +11,7 @@ TerritoryID
 FROM [SalesDatabase].[Sales].[SalesTerritory];
  
 
--- Dimensão StateProvince
+-- Dim StateProvince
 CREATE TABLE [Dim_StateProvince] (
 SK_StateProvince INT IDENTITY PRIMARY KEY, StateProvinceID INT,
 Name VARCHAR(100),
@@ -26,7 +26,7 @@ ON T1.TerritoryID = T2.SalesTerritoryID
 ALTER TABLE [Dim_StateProvince] ADD CONSTRAINT FK_Dim_StateProvince_Dim_SalesTerritory
 FOREIGN KEY (SK_SalesTerritory) REFERENCES [Dim_SalesTerritory] (SK_SalesTerritory)
 
--- Dimensão Dim Address
+-- Dim Dim Address
 
 CREATE TABLE [Dim_Address] (
 SK_Address INT IDENTITY PRIMARY KEY,
@@ -48,7 +48,7 @@ ON T1.StateProvinceID = T2.StateProvinceID
 
 ALTER TABLE [Dim_Address] ADD CONSTRAINT FK_Dim_Address_Dim_StateProvince FOREIGN KEY (SK_StateProvince) REFERENCES [Dim_StateProvince] (SK_StateProvince)
 
--- Dimensão Customer
+-- Dim Customer
 CREATE TABLE [Dim_Customer] (
 SK_Customer INT IDENTITY PRIMARY KEY,
 CustomerID INT, SK_Address INT
@@ -64,7 +64,7 @@ INNER JOIN Dim_Address T4 ON T3.AddressID = T4.AddressID
 
 ALTER TABLE [Dim_Customer] ADD CONSTRAINT FK_Dim_Customer_Dim_Address FOREIGN KEY (SK_Address) REFERENCES [Dim_Address] (SK_Address)
 
--- Dimensão Product Category
+-- Dim Product Category
 CREATE TABLE [Dim_ProductCategory] (
 SK_ProductCategory INT IDENTITY PRIMARY KEY, ProductCategoryID INT,
 Name VARCHAR(100)
@@ -75,7 +75,7 @@ INSERT INTO [Dim_ProductCategory] SELECT
 ProductCategoryID, Name
 FROM [Production].[ProductCategory]
 
--- Dimensão Product Subcategory
+-- Dim Product Subcategory
 CREATE TABLE [Dim_ProductSubcategory] (
 SK_ProductSubcategory INT IDENTITY PRIMARY KEY, ProductSubcategoryID INT,
 Name VARCHAR(100),
@@ -90,7 +90,7 @@ ON PSC.ProductCategoryID = DPC.ProductCategoryID
 ALTER TABLE [Dim_ProductSubcategory] ADD CONSTRAINT FK_Dim_ProductSubcategory_Dim_ProductCategory
 FOREIGN KEY (SK_ProductCategory) REFERENCES [Dim_ProductCategory] (SK_ProductCategory)
 
--- Dimensão Product Model
+-- Dim Product Model
 CREATE TABLE [Dim_ProductModel] (
 SK_ProductModel INT IDENTITY PRIMARY KEY,
 ProductModelID INT, Name VARCHAR(100)
@@ -103,7 +103,7 @@ INSERT INTO [Dim_ProductModel] SELECT
 ,[Name]
 FROM [SalesDatabase].[Production].[ProductModel]
 
--- Dimensão color
+-- Dim color
 CREATE TABLE [Dim_Color] (
 SK_Color INT IDENTITY PRIMARY KEY, Name VARCHAR(100)
 )
@@ -142,7 +142,7 @@ ALTER TABLE [Dim_Product] ADD CONSTRAINT [FK_Dim_Product_Dim_ProductModel] FOREI
 REFERENCES [Dim_ProductModel] ([SK_ProductModel])
  
 
--- Dimensão Credit Card
+-- Dim Credit Card
 CREATE TABLE [Dim_CreditCard] (
 SK_CreditCard INT IDENTITY PRIMARY KEY,
 [CreditCardID] INT, [CardType] [nvarchar](50), [CardNumber] [nvarchar](25), [ExpMonth] [tinyint], [ExpYear] [smallint]
@@ -156,7 +156,7 @@ INSERT INTO [Dim_CreditCard] SELECT [CreditCardID]
 ,[ExpYear]
 FROM [SalesDatabase].[Sales].[CreditCard]
 
--- Dimensão Store
+-- Dim Store
 CREATE TABLE [Dim_Store] (
 SK_Store INT IDENTITY PRIMARY KEY,
 [BusinessEntityID] [int], [Name] VARCHAR(100),
